@@ -1,0 +1,8 @@
+# configuration file for building snapshots and releases with jitpack.io
+jdk:
+  - openjdk17
+before_install:
+  - ./scripts/prepareJitpackEnvironment.sh
+install:
+  - FILE="-Dfile=cropimage-debug.aar"
+  - mvn install:install-file $FILE -DgroupId=com.github.dips25 -DartifactId=cropimage -Dversion=1.2 -Dpackaging=aar -DgeneratePom=true
